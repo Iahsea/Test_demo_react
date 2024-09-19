@@ -1,5 +1,5 @@
 import React from "react";
-import UserInfor from "./UserInfor";
+import AddUserInfor from "./AddUserInfor";
 import DisplayInfor from "./DisplayInfor";
 
 class MyComponent extends React.Component {
@@ -11,10 +11,22 @@ class MyComponent extends React.Component {
     ],
   };
 
+  handleAddNewUser = (userObj) => {
+    let listUserClone = [userObj, ...this.state.listUsers];
+    this.setState({
+      listUsers: listUserClone,
+    });
+
+    //C1
+    // this.setState({
+    //   listUsers: [userObj, ...this.state.listUsers],
+    // });
+  };
+
   render() {
     return (
       <div>
-        <UserInfor />
+        <AddUserInfor handleAddNewUser={this.handleAddNewUser} />
         <br />
         <DisplayInfor listUsers={this.state.listUsers} />
       </div>
