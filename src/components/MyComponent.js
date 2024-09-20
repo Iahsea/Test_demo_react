@@ -25,8 +25,12 @@ class MyComponent extends React.Component {
   };
 
   render() {
+    const test = { name: "Hai", age: "20" };
+    console.log(test);
+
     return (
       <>
+        <br />
         <div className="a">
           <AddUserInfor handleAddNewUser={this.handleAddNewUser} />
           <br />
