@@ -58,7 +58,7 @@ import DisplayInfor from "./DisplayInfor";
 //   }
 // }
 
-const MyComponent = () => {
+const MyComponent = (props) => {
   const [listUsers, setListUsers] = useState([
     { id: 1, name: "Hai", age: "16" },
     { id: 2, name: "Iahsea", age: "21" },
@@ -70,7 +70,10 @@ const MyComponent = () => {
   };
 
   const handleDeleteUser = (userId) => {
-    setListUsers([...listUsers.filter((item) => item.id !== userId)]);
+    // setListUsers([...listUsers.filter((item) => item.id !== userId)]);
+    let listUserClone = listUsers;
+    listUserClone = listUserClone.filter((item) => item.id !== userId);
+    setListUsers(listUserClone);
   };
 
   return (
