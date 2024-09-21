@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./DisplayInfor.scss";
 import logo from "./../logo.svg";
+import { click } from "@testing-library/user-event/dist/click";
 
 // class DisplayInfor extends React.Component {
 //   render() {
@@ -51,6 +52,22 @@ const DisplayInfor = (props) => {
   const handleShowHideListUser = () => {
     setShowHideListUser(!isShowHideListUser);
   };
+
+  console.log(">>> call me render");
+
+  useEffect(() => {
+    setTimeout(() => {
+      document.title = "Iahsea";
+    }, 3000);
+    console.log(">>> call me user Effect");
+  }, []);
+
+  useEffect(() => {
+    if (listUsers.length === 0) {
+      alert("You have got delete all users");
+    }
+    console.log(">>> call me user Effect 1");
+  }, [listUsers]);
 
   return (
     <div className="display-infor-container">
