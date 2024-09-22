@@ -1,5 +1,5 @@
 const Admin = (props) => {
-  return <div>user component</div>;
+  return <div>admin component</div>;
 };
 
 export default Admin;
