@@ -9,6 +9,7 @@ const ModalViewUser = (props) => {
 
   const handleClose = () => {
     setShow(false);
+    setPreviewImage(""); // Cho ảnh trở về không có gì khi tắt, không thì những cái user không có ảnh sẽ bị khi đè ảnh bởi những user có khi thực hiện useEffect
   };
 
   const [email, setEmail] = useState("");
@@ -40,7 +41,7 @@ const ModalViewUser = (props) => {
         className="modal-add-user"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Update a user</Modal.Title>
+          <Modal.Title>View a user</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="row g-3">
