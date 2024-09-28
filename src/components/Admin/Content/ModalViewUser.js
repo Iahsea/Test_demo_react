@@ -19,7 +19,6 @@ const ModalViewUser = (props) => {
   const [previewImage, setPreviewImage] = useState("");
 
   useEffect(() => {
-    console.log(">>> run useEffect", dataView);
     if (!_.isEmpty(dataView)) {
       setEmail(dataView.email);
       setUsername(dataView.username);
