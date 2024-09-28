@@ -98,7 +98,7 @@ const ModalViewUser = (props) => {
               </select>
             </div>
 
-            <div className="col-md-12 ">
+            {/* <div className="col-md-12 ">
               <label className="form-label label-upload" htmlFor="labelUpload">
                 <FcPlus /> Upload File Image
               </label>
@@ -106,11 +106,11 @@ const ModalViewUser = (props) => {
                 type="file"
                 hidden
                 id="labelUpload"
-                // onChange={(event) => {
-                //   handleUploadImage(event);
-                // }}
+                onChange={(event) => {
+                  handleUploadImage(event);
+                }}
               />
-            </div>
+            </div> */}
 
             <div className="col-md-12 img-preview">
               {previewImage ? (
