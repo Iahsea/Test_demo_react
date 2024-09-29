@@ -13,7 +13,7 @@ import ModalDeleteUser from "./ModalDeleteUser";
 import TableUserPaginate from "./TableUserPaginate";
 
 const ManageUser = (props) => {
-  const LIMIT_USER = 6;
+  const LIMIT_USER = 3;
   const [pageCount, setPageCount] = useState(0);
 
   const [showModalCreateUser, setShowModalCreateUser] = useState(false);
@@ -25,6 +25,7 @@ const ManageUser = (props) => {
   const [dataUpdate, setDataUpdate] = useState({});
   const [dataView, setDataView] = useState({});
   const [dataDelete, setDataDelete] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     fetchListUserWithPaginate(1);
@@ -92,12 +93,17 @@ const ManageUser = (props) => {
             handleClickBtnDelete={handleClickBtnDelete}
             fetchListUserWithPaginate={fetchListUserWithPaginate}
             pageCount={pageCount}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
           />
         </div>
         <ModalCreateUser
           show={showModalCreateUser}
           setShow={setShowModalCreateUser}
           fetchListUser={fetchListUser}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          fetchListUserWithPaginate={fetchListUserWithPaginate}
         />
         <ModalUpdateUser
           show={showModalUpdateUser}
@@ -105,6 +111,9 @@ const ManageUser = (props) => {
           dataUpdate={dataUpdate}
           fetchListUser={fetchListUser}
           resetUpdateData={resetUpdateData}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          fetchListUserWithPaginate={fetchListUserWithPaginate}
         />
 
         <ModalViewUser
@@ -117,7 +126,9 @@ const ManageUser = (props) => {
           show={showModalDeleteUser}
           setShow={setShowModalDeleteUser}
           dataDelete={dataDelete}
-          fetchListUser={fetchListUser}
+          fetchListUserWithPaginate={fetchListUserWithPaginate}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
       </div>
     </div>
