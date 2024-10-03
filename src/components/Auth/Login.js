@@ -8,12 +8,14 @@ import {
   doLogin,
   FETCH_USER_LOGIN_SUCCESS,
 } from "../../redux/action/userAction";
+import { ImSpinner10 } from "react-icons/im";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   const validateEmail = (email) => {
     return String(email)
@@ -34,15 +36,19 @@ const Login = (props) => {
       return;
     }
 
+    setIsLoading(true);
+
     let data = await postLogin(email, password);
 
     if (data && data.EC === 0) {
       dispatch(doLogin(data));
       toast.success(data.EM);
+      setIsLoading(false);
       navigate("/");
     }
     if (data && data.EC !== 0) {
       toast.error(data.EM);
+      setIsLoading(false);
     }
   };
 
@@ -86,7 +92,14 @@ const Login = (props) => {
 
         <span>Forgot password ?</span>
         <div>
-          <button onClick={() => handleLogin()}>Login to Iahsea</button>
+          <button
+            className="btn-submit"
+            onClick={() => handleLogin()}
+            disabled={isLoading}
+          >
+            {isLoading === true && <ImSpinner10 className="loader-icon" />}
+            <span>Login to Iahsea</span>
+          </button>
         </div>
         <div className="text-center">
           <span
