@@ -55,7 +55,7 @@ const Login = (props) => {
   return (
     <div className="login-container">
       <div className="header">
-        <span>Don't have an acount yet ?</span>
+        <span>Don't have an account yet ?</span>
         <button
           onClick={() => {
             navigate("/register");

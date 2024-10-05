@@ -37,7 +37,12 @@ const ModalDeleteUser = (props) => {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleSubmitDeleteUser}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              handleSubmitDeleteUser();
+            }}
+          >
             Confirm
           </Button>
         </Modal.Footer>
